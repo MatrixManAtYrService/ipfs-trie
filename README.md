@@ -116,6 +116,7 @@ The commands below are executed from the top level of the repo.
 |`python -m unittest` | runs all tests | no|
 |`python -m unittest tests.test_trie.TrieStore.test_dummy1` | run a specific test | no |
 
+- Be sure that the ipfs daemon is running before running unit tests
 
 - If you run ipfs_trie without installing, the directory trie will be written to `~/.ipfs_trie/<PeerId>` which means that separate users will have separate caches
 
