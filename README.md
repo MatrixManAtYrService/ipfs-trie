@@ -105,16 +105,11 @@ The underlying directory is created like this (this part is handled by ipfs_trie
 
 From the top level directory...
 
-#### Run without installing
-`python ipfs_trie`
-
-#### Installation
-`python3 setup.py install --record installed_files.txt` in a root shell. After this, the command: `ipfs_trie` will be available from anywhere.
-
-#### Uninstall
-`cat installed_files.txt | xargs rm -f && hash -r` in a root shell.
-
-#### Testing
-`pip install -r requirements_test.txt`
-`python -m unittest` runs all tests
-`python -m unittest tests.test_trie.TrieStore.test_dummy1` run a specific test
+| Command | Action | Requires Root |
+|---------|--------|---------------|
+|`python ipfs_trie`| run without installing | no |
+|`python3 setup.py install --record installed_files.txt`| install ipfs_trie | yes |
+|`cat installed_files.txt | xargs rm -f && hash -r` | uninstall ipfs_trie | yes |
+|`pip install -r requirements_test.txt` | prepare for testing | no |
+|`python -m unittest` | runs all tests | no|
+|`python -m unittest tests.test_trie.TrieStore.test_dummy1` | run a specific test | no |
