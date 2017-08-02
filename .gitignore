@@ -94,3 +94,5 @@ ENV/
 .ropeproject
 
 .*.swp
+
+installed_files.txt

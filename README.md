@@ -96,3 +96,16 @@ The underlying directory is created like this (this part is handled by ipfs-trie
 
     $ ipfs-trie ask <ipfs-node> corge
     Error: Not Found
+
+### Usage
+
+From the top level directory...
+
+#### Run without installing
+`python ipfs-trie`
+
+#### Installation
+`python3 setup.py install --record installed_files.txt` in a root shell. After this, the command: `ipfs-trie` will be available from anywhere.
+
+#### Uninstall
+`cat installed_files.txt | xargs rm -f && hash -r` in a root shell.
