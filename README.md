@@ -1,15 +1,15 @@
 **Note: this software isn't even alpha, it's just an empy shell.  I'll remove this note when it's even marginally useful**
 
-ipfs-trie
+ipfs_trie
 =============
 
-ipfs-trie is a python utility for storing and querying key-value-pairs via ipfs.  A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented via a directory structure (see example below).
+ipfs_trie is a python utility for storing and querying key-value-pairs via ipfs.  A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented via a directory structure (see example below).
 
 ### Local Caching
 
-When the `add` verb is used, the trie is created `~/.ipfs-trie/<PeerID>/` where `<PeerID>` is the local ipfs node.  The trie is then added to ipfs and pinned.
+When the `add` verb is used, the trie is created `/var/ipfs_trie/<PeerID>/` where `<PeerID>` is the local ipfs node.  The trie is then added to ipfs and pinned.
 
-When the `ask` verb is used, `~/.ipfs-trie/<PeerID>/` is checked to see if the answer is stored locally.  If not, then the indicated peer is asked, and then the relevant trie-path is stored locally, and the value is output the command line.
+When the `ask` verb is used, `/var/ipfs_trie/<PeerID>/` is checked to see if the answer is stored locally.  If not, then the indicated peer is asked, and then the relevant trie-path is stored locally, and the value is output the command line.
 
 Removal is not currently supported.
 
@@ -28,9 +28,9 @@ description pending, here's a sketch:
                                                 v
                                       [last key character : value]
 
-If the redirect block doesn't have a link called ipfs-trie-root, then that link will be added.
+If the redirect block doesn't have a link called ipfs_trie_root, then that link will be added.
 
-If the redirect block does have a link called ipfs-trie-root, then that link will be updated to point to the new trie root.
+If the redirect block does have a link called ipfs_trie_root, then that link will be updated to point to the new trie root.
 
 In either case, IPNS will be updated so that the local PeerId points to the redirect block
 
@@ -55,17 +55,17 @@ No performance tests have been done.
 | bar | quux  |
 | baz | quuz  |
 
-#### ipfs-trie Commands
+#### ipfs_trie Commands
 
 These commands add key-value-pairs under the local ipns namespace
 
-    $ ipfs-trie add foo qux
-    $ ipfs-trie add bar quux
-    $ ipfs-trie add baz quuz
+    $ ipfs_trie add foo qux
+    $ ipfs_trie add bar quux
+    $ ipfs_trie add baz quuz
 
 #### OS Calls
 
-The underlying directory is created like this (this part is handled by ipfs-trie).
+The underlying directory is created like this (this part is handled by ipfs_trie).
 
     $ mkdir -p "f/o"
     $ echo "qux" > f/o/o
@@ -89,16 +89,16 @@ The underlying directory is created like this (this part is handled by ipfs-trie
 
 #### Query Commands
 
-    $ ipfs-trie ask <PeerID> foo
+    $ ipfs_trie ask <PeerID> foo
     qux
 
-    $ ipfs-trie ask <ipfs-node> bar
+    $ ipfs_trie ask <ipfs-node> bar
     quux
 
-    $ ipfs-trie ask <ipfs-node> baz
+    $ ipfs_trie ask <ipfs-node> baz
     quuz
 
-    $ ipfs-trie ask <ipfs-node> corge
+    $ ipfs_trie ask <ipfs-node> corge
     Error: Not Found
 
 ### Usage
@@ -106,10 +106,10 @@ The underlying directory is created like this (this part is handled by ipfs-trie
 From the top level directory...
 
 #### Run without installing
-`python ipfs-trie`
+`python ipfs_trie`
 
 #### Installation
-`python3 setup.py install --record installed_files.txt` in a root shell. After this, the command: `ipfs-trie` will be available from anywhere.
+`python3 setup.py install --record installed_files.txt` in a root shell. After this, the command: `ipfs_trie` will be available from anywhere.
 
 #### Uninstall
 `cat installed_files.txt | xargs rm -f && hash -r` in a root shell.
