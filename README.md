@@ -26,10 +26,7 @@ description pending, here's a sketch:
                                        (branches omitted)
                                                 |
                                                 v
-                                      [last key character]
-                                                |
-                                                v
-                                             [value]
+                                      [last key character : value]
 
 If the redirect block doesn't have a link called ipfs-trie-root, then that link will be added.
 
@@ -116,3 +113,8 @@ From the top level directory...
 
 #### Uninstall
 `cat installed_files.txt | xargs rm -f && hash -r` in a root shell.
+
+#### Testing
+`pip install -r testRequirements.txt`
+`python -m unittest` runs all tests
+`python -m unittest tests.test_trie.TrieStore.test_dummy1` run a specific test
