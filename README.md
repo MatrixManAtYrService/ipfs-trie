@@ -1,3 +1,5 @@
+**Note: this software isn't even alpha, it's just an empy shell.  I'll remove this note when it's even marginally useful**
+
 ipfs-trie
 =============
 
@@ -37,7 +39,12 @@ In either case, IPNS will be updated so that the local PeerId points to the redi
 
 ### Performance
 
-There's a high likelihood of superfluous nodes, which will probably slow things down and waste memory.  Perhaps it would be better to do something like [this](https://github.com/ethereum/wiki/wiki/Patricia-Tree).
+There's a high likelihood of superfluous nodes, which will probably slow things down and waste memory.  Perhaps it would be better to do something like [this](https://github.com/ethereum/wiki/wiki/Patricia-Tree).  But...
+ 1. Optimize when needed, not up front
+ 2. I'm lazy
+ 3. I haven't thought through the implications of having different nodes' tries balanced in different ways (based on incomplete data), the naieve-trie doesn't rebalance, so each node's trie structurally resembles all others'.
+
+To work around this limitation, I recommend using short keys.
 
 No performance tests have been done.
 
