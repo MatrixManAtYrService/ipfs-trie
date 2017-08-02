@@ -1,9 +1,9 @@
-**Note: this software isn't even alpha, it's just an empy shell.  I'll remove this note when it's even marginally useful**
+**Note: this software isn't even alpha, it's just an empy shell for a project.  I'll remove this note when it's even marginally useful**
 
 ipfs_trie
 =============
 
-ipfs_trie is a python utility for storing and querying key-value-pairs via ipfs.  A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented via a directory structure (see example below).
+ipfs_trie is a python utility for storing and querying key-value-pairs via ipfs.  A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented with a directory structure (see example below).
 
 ### Local Caching
 
@@ -28,11 +28,13 @@ description pending, here's a sketch:
                                                 v
                                       [last key character : value]
 
-If the redirect block doesn't have a link called ipfs_trie_root, then that link will be added.
+- If the redirect block doesn't have a link called ipfs_trie_root, then that link will be added.
 
-If the redirect block does have a link called ipfs_trie_root, then that link will be updated to point to the new trie root.
+- If the redirect block does have a link called ipfs_trie_root, then that link will be updated to point to the new trie root.
 
-In either case, IPNS will be updated so that the local PeerId points to the redirect block
+- In either case, IPNS will be updated so that the local PeerId points to the redirect block
+
+Future feature: Accept PeerID/<trie-name> to allow multiple tries to be stored by a single peer
 
 ### Performance
 
@@ -45,7 +47,7 @@ To work around this limitation, I recommend using short keys.
 
 No performance tests have been done.
 
-### Example
+## Example Use
 
 #### Key Value Pairs
 
@@ -101,11 +103,11 @@ The underlying directory is created like this (this part is handled by ipfs_trie
     $ ipfs_trie ask <ipfs-node> corge
     Error: Not Found
 
-### Usage
+## Relevant Commands
 
-From the top level directory...
+The commands below are executed from the top level of the repo.
 
-| Command | Action | Requires Root |
+| Command | Action | Root? |
 |---------|--------|---------------|
 |`python ipfs_trie`| run without installing | no |
 |`python3 setup.py install --record installed_files.txt`| install ipfs_trie | yes |
@@ -113,3 +115,8 @@ From the top level directory...
 |`pip install -r requirements_test.txt` | prepare for testing | no |
 |`python -m unittest` | runs all tests | no|
 |`python -m unittest tests.test_trie.TrieStore.test_dummy1` | run a specific test | no |
+
+
+- If you run ipfs_trie without installing, the directory trie will be written to `~/.ipfs_trie/<PeerId>` which means that separate users will have separate caches
+
+- Once ipfs_trie is installed, the command `ipfs_trie` will be available from anywhere
