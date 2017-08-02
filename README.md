@@ -109,7 +109,7 @@ From the top level directory...
 |---------|--------|---------------|
 |`python ipfs_trie`| run without installing | no |
 |`python3 setup.py install --record installed_files.txt`| install ipfs_trie | yes |
-|`cat installed_files.txt | xargs rm -f && hash -r` | uninstall ipfs_trie | yes |
+|<code>cat installed_files.txt &#124; xargs rm -f && hash -r</code> | uninstall ipfs_trie | yes |
 |`pip install -r requirements_test.txt` | prepare for testing | no |
 |`python -m unittest` | runs all tests | no|
 |`python -m unittest tests.test_trie.TrieStore.test_dummy1` | run a specific test | no |
