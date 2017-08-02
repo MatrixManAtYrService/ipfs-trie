@@ -3,7 +3,7 @@
 ipfs-trie
 =============
 
-ipfs-trie is a python utility for storing and querying key-value-pairs via ipfs.  The keys need to be strings whose characters are valid in directory names. A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented via a directory structure (see example below).
+ipfs-trie is a python utility for storing and querying key-value-pairs via ipfs.  A [trie](https://en.wikipedia.org/wiki/Trie) is used to store the value, and it is implemented via a directory structure (see example below).
 
 ### Local Caching
 
@@ -115,6 +115,6 @@ From the top level directory...
 `cat installed_files.txt | xargs rm -f && hash -r` in a root shell.
 
 #### Testing
-`pip install -r testRequirements.txt`
+`pip install -r requirements_test.txt`
 `python -m unittest` runs all tests
 `python -m unittest tests.test_trie.TrieStore.test_dummy1` run a specific test
