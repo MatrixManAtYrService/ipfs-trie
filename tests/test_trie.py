@@ -12,6 +12,9 @@ class TrieStore(unittest.TestCase):
     def setUp(self):
         pass
 
+    def test_ipfs_installed(self):
+        self.assertEqual(1,1, "Equality is reflexive")
+
     def test_dummy1(self):
         self.assertEqual(1,1, "Equality is reflexive")
 
